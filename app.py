@@ -318,7 +318,6 @@ class UpdateProductsWindow(QtWidgets.QMainWindow, Ui_CreateUpdateProductWIndow):
         )
         self.close()
         self.update_index = None
-        self.pushButton.setText('Сохранить')
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
         self.lineEdit.clear()
@@ -327,10 +326,13 @@ class UpdateProductsWindow(QtWidgets.QMainWindow, Ui_CreateUpdateProductWIndow):
         self.lineEdit_3.clear()
         self.comboBox_2.setCurrentIndex(0)
         self.lineEdit_4.clear()
+        self.pushButton.setText('Сохранить')
+        self.setWindowTitle('Добавить новый продукт')
 
     def load_product(self, index):
         self.update_index = index
-        self.pushButton.setText('Обновить продукт')
+        self.pushButton.setText('Изменить продукт')
+        self.setWindowTitle('Изменить продукт')
 
         product = products_model.products[index.row()]
         self.lineEdit.setText(product.name)
@@ -436,11 +438,11 @@ class CreateUpdateClientWindow(QtWidgets.QMainWindow, Ui_CreateUpdateClient):
         )
         self.close()
         self.update_index = None
-        self.pushButton.setText('Сохранить')
 
     def load_client(self, index):
         self.update_index = index
-        self.pushButton.setText('Обновить клиента')
+        self.pushButton.setText('Изменить данные клиента')
+        self.setWindowTitle('Изменить данные клиента')
 
         client = clients_model.clients[index.row()]
 
@@ -454,6 +456,8 @@ class CreateUpdateClientWindow(QtWidgets.QMainWindow, Ui_CreateUpdateClient):
         self.lineEdit_2.clear()
         self.lineEdit_3.clear()
         self.lineEdit_4.clear()
+        self.pushButton.setText('Сохранить')
+        self.setWindowTitle('Добавить клиента')
 
 
 class CreateUpdateSuppliersWindow(QtWidgets.QMainWindow, Ui_CreateUpdateSupplier):
