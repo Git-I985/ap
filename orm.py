@@ -1,7 +1,9 @@
 from peewee import *
 from playhouse.migrate import *
 
-db = SqliteDatabase('app.db')
+# db = SqliteDatabase('app.db')
+db = MySQLDatabase('alinaproj', user='root', password='root',
+                   host='localhost', port=3306)
 
 
 class BaseModel(Model):
@@ -55,7 +57,7 @@ class ProductCategory(BaseModel):
 class Product(BaseModel):
     name = TextField()
     category = ForeignKeyField(ProductCategory)
-    sale_price = DecimalField()
+    sale_price = DecimalField(null=True)
     buy_price = DecimalField()
     unit = ForeignKeyField(Units)
     margin = DecimalField()
@@ -78,6 +80,17 @@ class Warehouse(BaseModel):
     amount = DecimalField()
 
 
+class UserRole(BaseModel):
+    name = TextField()
+
+
+class User(BaseModel):
+    name = TextField()
+    login = TextField()
+    password = TextField()
+    role = ForeignKeyField(UserRole)
+
+
 def create_tables():
     with db:
         db.create_tables([
@@ -92,7 +105,9 @@ def create_tables():
             Product,
             ProductCategory,
             Warehouse,
-            Units
+            Units,
+            User,
+            UserRole
         ])
 
 

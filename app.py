@@ -9,6 +9,7 @@ from PyQt5 import QtWidgets
 from view.ClientsWindow import ClientsWindow
 from view.ProductsWindow import ProductsWindow
 from view.SuppliersWindow import SuppliersWindow
+from view.UsersWindow import UsersWindow
 
 
 # Trigger refresh.
@@ -22,6 +23,7 @@ class App(QtWidgets.QApplication):
         self.productsWindow = ProductsWindow()
         self.suppliersWindow = SuppliersWindow()
         self.clientsWindow = ClientsWindow()
+        self.usersWindow = UsersWindow()
 
         self.productsWindow.menubar.addAction(self.productsWindow.clients_action)
         self.productsWindow.menubar.addAction(self.productsWindow.suppliers_action)
@@ -37,7 +39,8 @@ class App(QtWidgets.QApplication):
         self.suppliersWindow.clients_action.triggered.connect(self.show_clients)
         self.suppliersWindow.products_action.triggered.connect(self.show_products)
 
-        self.productsWindow.show()
+        # self.productsWindow.show()
+        self.usersWindow.show()
 
     def show_clients(self):
         self.clientsWindow.show()
@@ -50,6 +53,10 @@ class App(QtWidgets.QApplication):
     def show_products(self):
         self.productsWindow.show()
         self.productsWindow.activateWindow()
+
+    def show_users(self):
+        self.usersWindow.show()
+        self.usersWindow.activateWindow()
 
 
 app = App(sys.argv)
