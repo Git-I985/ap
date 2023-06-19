@@ -1,7 +1,7 @@
 ```shell
 python -m venv venv # создаем виртуальное окружение (желательно)
 venv/Scrits/activate # активируем виртуальное окружение
-venv/Scrits/activate.ps1 # активируем виртуальное окружение (windows)
+./venv/Scrits/Activate.ps1 # активируем виртуальное окружение (windows)
 
 winget install Qt.Designer # скачиваем Qt.Designer одной командой
 
