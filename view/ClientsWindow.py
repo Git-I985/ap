@@ -4,6 +4,12 @@ from view.CreateUpdateClientWindow import CreateUpdateClientWindow
 from uic.clients import Ui_Clients
 
 
+# Класс ClientsWindow является окном и наследуется от QMainWindow и является основой для
+# построения пользовательского интерфейса окна работы с клиентами в системе.
+# Класс ClientsWindow содержит в себе инициализацию обработчиков событий исходящих от элементов
+# внутри этого окна, а так-же устанавливает модели для элементов представлений и инициализирует интерфейс
+# с использованием скомпилированных в py - ui файлов. Класс ClientsWindow так-же взаимодействует с моделями
+# данных внутри обработчиков событий, вызывая методы моделей и меняя данные исходя из поведения пользователя.
 class ClientsWindow(QtWidgets.QMainWindow, Ui_Clients):
     def __init__(self, *argv):
         super(QtWidgets.QMainWindow, self).__init__(*argv)
