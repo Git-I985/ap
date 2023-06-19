@@ -1,4 +1,4 @@
 #! /usr/bin/bash
 
-rm ./code_export.txt
-find . -name "*.py" -type f -not -path "./Lib/*" -not -path "./Scripts/*" -exec cat {} > code_export.txt \;
+rm ./code_export.txt 2> /dev/null;
+find . -name "*.py" -type f -not -path "./venv/*" -exec cat {} > code_export.txt \;
