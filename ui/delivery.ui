@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>605</width>
-    <height>417</height>
+    <width>486</width>
+    <height>219</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Поставка</string>
+   <string>Изменить/Создать поставку</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>605</width>
+     <width>486</width>
      <height>21</height>
     </rect>
    </property>

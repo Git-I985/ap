@@ -24,7 +24,7 @@ class UpdateProductsWindow(QtWidgets.QMainWindow, Ui_CreateUpdateProductWIndow):
             name=self.lineEdit.text(),
             category=product_categories_model.product_categories[self.comboBox.currentIndex()],
             buy_price=self.lineEdit_2.text(),
-            sale_price=self.lineEdit_3.text(),
+            sale_price=None,
             unit=units_model.product_units[self.comboBox_2.currentIndex()],
             margin=self.lineEdit_4.text()
         )
@@ -36,7 +36,7 @@ class UpdateProductsWindow(QtWidgets.QMainWindow, Ui_CreateUpdateProductWIndow):
             name=self.lineEdit.text(),
             category=product_categories_model.product_categories[self.comboBox.currentIndex()],
             buy_price=self.lineEdit_2.text(),
-            sale_price=self.lineEdit_3.text(),
+            sale_price=None,
             unit=units_model.product_units[self.comboBox_2.currentIndex()],
             margin=self.lineEdit_4.text()
         )
@@ -47,7 +47,7 @@ class UpdateProductsWindow(QtWidgets.QMainWindow, Ui_CreateUpdateProductWIndow):
         self.lineEdit.clear()
         self.comboBox.setCurrentIndex(0)
         self.lineEdit_2.clear()
-        self.lineEdit_3.clear()
+        # self.lineEdit_3.clear()
         self.comboBox_2.setCurrentIndex(0)
         self.lineEdit_4.clear()
         self.pushButton.setText('Сохранить')
@@ -62,7 +62,6 @@ class UpdateProductsWindow(QtWidgets.QMainWindow, Ui_CreateUpdateProductWIndow):
         self.lineEdit.setText(product.name)
         self.comboBox.setCurrentIndex(list(product_categories_model.product_categories).index(product.category))
         self.lineEdit_2.setText(str(product.buy_price))
-        self.lineEdit_3.setText(str(product.sale_price))
         self.comboBox_2.setCurrentIndex(list(units_model.product_units).index(product.unit))
         self.lineEdit_4.setText(str(product.margin))
         pass

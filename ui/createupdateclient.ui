@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>662</width>
-    <height>265</height>
+    <width>466</width>
+    <height>249</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Создать клиента</string>
+   <string>Добавить / Изменить данные клиента</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">

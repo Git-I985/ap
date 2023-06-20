@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_CreateUpdateSupplier(object):
     def setupUi(self, CreateUpdateSupplier):
         CreateUpdateSupplier.setObjectName("CreateUpdateSupplier")
-        CreateUpdateSupplier.resize(567, 265)
+        CreateUpdateSupplier.resize(462, 242)
         self.centralwidget = QtWidgets.QWidget(CreateUpdateSupplier)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -55,7 +55,7 @@ class Ui_CreateUpdateSupplier(object):
 
     def retranslateUi(self, CreateUpdateSupplier):
         _translate = QtCore.QCoreApplication.translate
-        CreateUpdateSupplier.setWindowTitle(_translate("CreateUpdateSupplier", "Создать поставщика"))
+        CreateUpdateSupplier.setWindowTitle(_translate("CreateUpdateSupplier", "Создать / изменить данные поставщика"))
         self.label.setText(_translate("CreateUpdateSupplier", "Компания"))
         self.label_2.setText(_translate("CreateUpdateSupplier", "Адрес"))
         self.label_3.setText(_translate("CreateUpdateSupplier", "Телефон"))

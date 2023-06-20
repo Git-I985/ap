@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Clients(object):
     def setupUi(self, Clients):
         Clients.setObjectName("Clients")
-        Clients.resize(571, 420)
+        Clients.resize(510, 251)
         self.centralwidget = QtWidgets.QWidget(Clients)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -53,7 +53,7 @@ class Ui_Clients(object):
         self.gridLayout.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
         Clients.setCentralWidget(self.centralwidget)
         self.menuBar = QtWidgets.QMenuBar(Clients)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 571, 21))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 510, 21))
         self.menuBar.setObjectName("menuBar")
         Clients.setMenuBar(self.menuBar)
         self.clients_action = QtWidgets.QAction(Clients)

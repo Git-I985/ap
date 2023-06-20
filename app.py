@@ -6,10 +6,12 @@
 import sys
 
 from PyQt5 import QtWidgets
-from view.ClientsWindow import ClientsWindow
-from view.ProductsWindow import ProductsWindow
-from view.SuppliersWindow import SuppliersWindow
-from view.UsersWindow import UsersWindow
+from orm import User
+from view.Clients.ClientsWindow import ClientsWindow
+from view.Products.ProductsWindow import ProductsWindow
+from view.Suppliers.SuppliersWindow import SuppliersWindow
+from view.Users.UsersWindow import UsersWindow
+from view.LoginWindow import LoginWindow
 
 
 # Trigger refresh.
@@ -39,8 +41,30 @@ class App(QtWidgets.QApplication):
         self.suppliersWindow.clients_action.triggered.connect(self.show_clients)
         self.suppliersWindow.products_action.triggered.connect(self.show_products)
 
-        # self.productsWindow.show()
-        self.usersWindow.show()
+        self.initLogin()
+
+    def initLogin(self):
+        if User.select().count() > 0:
+            self.loginWindow = LoginWindow()
+            self.loginWindow.show()
+            self.loginWindow.pushButton.clicked.connect(self.login)
+        else:
+            self.productsWindow.show()
+
+    def login(self):
+        login = self.loginWindow.lineEdit.text()
+        password = self.loginWindow.lineEdit_2.text()
+        user = User.get_or_none(User.login == login, User.password == password)
+
+        if user:
+            self.loginWindow.close()
+            self.productsWindow.show()
+        else:
+            QtWidgets.QMessageBox.critical(
+                self.loginWindow,
+                "Ошибка",
+                "Пользователь не существует"
+            )
 
     def show_clients(self):
         self.clientsWindow.show()

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_CreateUpdateClient(object):
     def setupUi(self, CreateUpdateClient):
         CreateUpdateClient.setObjectName("CreateUpdateClient")
-        CreateUpdateClient.resize(662, 265)
+        CreateUpdateClient.resize(466, 249)
         self.centralwidget = QtWidgets.QWidget(CreateUpdateClient)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -55,7 +55,7 @@ class Ui_CreateUpdateClient(object):
 
     def retranslateUi(self, CreateUpdateClient):
         _translate = QtCore.QCoreApplication.translate
-        CreateUpdateClient.setWindowTitle(_translate("CreateUpdateClient", "Создать клиента"))
+        CreateUpdateClient.setWindowTitle(_translate("CreateUpdateClient", "Добавить / Изменить данные клиента"))
         self.label.setText(_translate("CreateUpdateClient", "Компания"))
         self.label_2.setText(_translate("CreateUpdateClient", "Адрес"))
         self.label_3.setText(_translate("CreateUpdateClient", "Телефон"))

@@ -14,12 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(486, 416)
+        MainWindow.resize(547, 220)
+        MainWindow.setIconSize(QtCore.QSize(24, 24))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 486, 21))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 547, 21))
         self.menuBar.setObjectName("menuBar")
         MainWindow.setMenuBar(self.menuBar)
 

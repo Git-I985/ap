@@ -1,8 +1,8 @@
 from PyQt5 import QtWidgets
 from models import products_model
-from view.UpdateProductsCategoriesWindow import UpdateProductsCategoriesWindow
+from view.Products.UpdateProductsCategoriesWindow import UpdateProductsCategoriesWindow
 from uic.products import Ui_MainWindow
-from view.UpdateProductsWindow import UpdateProductsWindow
+from view.Products.UpdateProductsWindow import UpdateProductsWindow
 
 
 class ProductsWindow(QtWidgets.QMainWindow, Ui_MainWindow):

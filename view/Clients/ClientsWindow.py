@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 from models import clients_model
-from view.CreateUpdateClientWindow import CreateUpdateClientWindow
+from view.Clients.CreateUpdateClientWindow import CreateUpdateClientWindow
 from uic.clients import Ui_Clients
 
 
