@@ -6,6 +6,8 @@ from models.users_model import UsersModel
 from models.user_role_model import UsersRolesModel
 from models.suppliers_model import SuppliersModel
 from models.warehouse_model import WarehouseModel
+from models.orders_model import OrdersModel
+from models.order_status_model import OrderStatusModel
 from orm import Product, Warehouse
 
 # Инициализация глобальных моделей данных, инициализация моделей глобальна в целях использования
@@ -19,3 +21,5 @@ product_categories_model = ProductsCategoriesModel()
 users_model = UsersModel()
 users_roles_model = UsersRolesModel()
 warehouse_model = WarehouseModel()
+orders_model = OrdersModel()
+order_status_model = OrderStatusModel()

@@ -62,6 +62,8 @@ class Ui_Suppliers(object):
         self.products_action.setObjectName("products_action")
         self.warehouse_action = QtWidgets.QAction(Suppliers)
         self.warehouse_action.setObjectName("warehouse_action")
+        self.orders_action = QtWidgets.QAction(Suppliers)
+        self.orders_action.setObjectName("orders_action")
 
         self.retranslateUi(Suppliers)
         QtCore.QMetaObject.connectSlotsByName(Suppliers)
@@ -77,3 +79,4 @@ class Ui_Suppliers(object):
         self.suppliers_action.setText(_translate("Suppliers", "Поставщики"))
         self.products_action.setText(_translate("Suppliers", "Продукты"))
         self.warehouse_action.setText(_translate("Suppliers", "Склад"))
+        self.orders_action.setText(_translate("Suppliers", "Заказы"))

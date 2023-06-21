@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>547</width>
-    <height>220</height>
+    <width>540</width>
+    <height>289</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>547</width>
+     <width>540</width>
      <height>21</height>
     </rect>
    </property>
@@ -48,6 +48,11 @@
   <action name="warehouse_action">
    <property name="text">
     <string>Склад</string>
+   </property>
+  </action>
+  <action name="orders_action">
+   <property name="text">
+    <string>Заказы</string>
    </property>
   </action>
  </widget>

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_CreateUpdateWarehouseWindow(object):
     def setupUi(self, CreateUpdateWarehouseWindow):
         CreateUpdateWarehouseWindow.setObjectName("CreateUpdateWarehouseWindow")
-        CreateUpdateWarehouseWindow.resize(491, 268)
+        CreateUpdateWarehouseWindow.resize(491, 264)
         self.centralwidget = QtWidgets.QWidget(CreateUpdateWarehouseWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)

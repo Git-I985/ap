@@ -14,13 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(547, 220)
+        MainWindow.resize(540, 289)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 547, 21))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 540, 21))
         self.menuBar.setObjectName("menuBar")
         MainWindow.setMenuBar(self.menuBar)
         self.clients_action = QtWidgets.QAction(MainWindow)
@@ -31,6 +31,8 @@ class Ui_MainWindow(object):
         self.products_action.setObjectName("products_action")
         self.warehouse_action = QtWidgets.QAction(MainWindow)
         self.warehouse_action.setObjectName("warehouse_action")
+        self.orders_action = QtWidgets.QAction(MainWindow)
+        self.orders_action.setObjectName("orders_action")
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -42,3 +44,4 @@ class Ui_MainWindow(object):
         self.suppliers_action.setText(_translate("MainWindow", "Поставщики"))
         self.products_action.setText(_translate("MainWindow", "Продукты"))
         self.warehouse_action.setText(_translate("MainWindow", "Склад"))
+        self.orders_action.setText(_translate("MainWindow", "Заказы"))
