@@ -41,3 +41,31 @@ class UsersModel(QtCore.QAbstractTableModel):
             return QtCore.QVariant()
         if orientation == QtCore.Qt.Horizontal:
             return QtCore.QVariant(self.cols[column])
+
+    def create_user(self,
+                    login,
+                    password,
+                    role):
+
+        User.create(
+            login=login,
+            password=password,
+            role=role
+        )
+        self.update()
+
+    def delete_user(self, index):
+        self.users[index.row()].delete_instance()
+        self.update()
+
+    def update_user(self,
+                    index,
+                    login,
+                    password,
+                    role):
+        user = self.users[index.row()]
+        user.login = login
+        user.password = password
+        user.role = role
+        user.save()
+        self.update()
