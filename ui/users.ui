@@ -98,6 +98,26 @@
     </rect>
    </property>
   </widget>
+  <action name="clients_action">
+   <property name="text">
+    <string>Клиенты</string>
+   </property>
+  </action>
+  <action name="suppliers_action">
+   <property name="text">
+    <string>Поставщики</string>
+   </property>
+  </action>
+  <action name="products_action">
+   <property name="text">
+    <string>Продукты</string>
+   </property>
+  </action>
+  <action name="warehouse_action">
+   <property name="text">
+    <string>Склад</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

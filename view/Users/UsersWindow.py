@@ -16,7 +16,6 @@ class UsersWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_2.clicked.connect(lambda x: self.createUpdateUserWindow.show())
         self.pushButton.clicked.connect(self.delete_user)
         self.pushButton_3.clicked.connect(self.update_user)
-        self.tableView.resizeColumnsToContents()
 
     def delete_user(self):
         indexes = self.tableView.selectedIndexes()

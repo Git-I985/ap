@@ -2,6 +2,7 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
 from peewee import fn
 from orm import Product, Warehouse
+from utils import normalise_number
 
 
 class ProductsModel(QtCore.QAbstractTableModel):
@@ -32,11 +33,11 @@ class ProductsModel(QtCore.QAbstractTableModel):
 
             return [
                 product.name,
-                str(product.sale_price) + 'Р',
-                str(product.buy_price) + 'Р',
-                str(product.margin) + '%',
+                normalise_number(product.sale_price) + ' Р',
+                normalise_number(product.buy_price) + ' Р',
+                normalise_number(product.margin) + ' %',
                 product.category.name,
-                in_stock or 0,
+                normalise_number(in_stock or 0),
                 product.unit.name,
             ][index.column()]
 

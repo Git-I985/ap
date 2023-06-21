@@ -136,6 +136,11 @@
     <string>Продукты</string>
    </property>
   </action>
+  <action name="warehouse_action">
+   <property name="text">
+    <string>Склад</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

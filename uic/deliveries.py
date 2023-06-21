@@ -23,6 +23,14 @@ class Ui_MainWindow(object):
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 547, 21))
         self.menuBar.setObjectName("menuBar")
         MainWindow.setMenuBar(self.menuBar)
+        self.clients_action = QtWidgets.QAction(MainWindow)
+        self.clients_action.setObjectName("clients_action")
+        self.suppliers_action = QtWidgets.QAction(MainWindow)
+        self.suppliers_action.setObjectName("suppliers_action")
+        self.products_action = QtWidgets.QAction(MainWindow)
+        self.products_action.setObjectName("products_action")
+        self.warehouse_action = QtWidgets.QAction(MainWindow)
+        self.warehouse_action.setObjectName("warehouse_action")
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -30,3 +38,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Поставки"))
+        self.clients_action.setText(_translate("MainWindow", "Клиенты"))
+        self.suppliers_action.setText(_translate("MainWindow", "Поставщики"))
+        self.products_action.setText(_translate("MainWindow", "Продукты"))
+        self.warehouse_action.setText(_translate("MainWindow", "Склад"))
