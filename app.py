@@ -70,7 +70,7 @@ class App(QtWidgets.QApplication):
 
     def setup_default_window(self):
         if self.user.role.name == 'Администратор':
-            self.defaultWindow = self.analyticsWindow
+            self.defaultWindow = self.usersWindow
         elif self.user.role.name == 'Менеджер':
             self.defaultWindow = self.ordersWindow
         elif self.user.role.name == 'Работник склада':
