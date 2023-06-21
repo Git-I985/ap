@@ -116,6 +116,16 @@
     <string>Заказы</string>
    </property>
   </action>
+  <action name="deliveries_action">
+   <property name="text">
+    <string>Поставки</string>
+   </property>
+  </action>
+  <action name="warehouse_action">
+   <property name="text">
+    <string>Склад</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

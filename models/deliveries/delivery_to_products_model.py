@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt
 from utils import normalise_number
 
 
-class OrderToProductsModel(QtCore.QAbstractTableModel):
+class DeliveryToProductsModel(QtCore.QAbstractTableModel):
     cols = [
         'название',
         'кол-во'
@@ -19,7 +19,7 @@ class OrderToProductsModel(QtCore.QAbstractTableModel):
 
             return [
                 product[0].name,
-                product[1],
+                normalise_number(product[1]) + ' ' + product[0].unit.name
             ][index.column()]
 
     def update(self):
@@ -41,7 +41,7 @@ class OrderToProductsModel(QtCore.QAbstractTableModel):
     def flags(self, index):
         return Qt.ItemIsSelectable | Qt.ItemIsEnabled
 
-    def add_order_product(self, product, amount):
+    def add_delivery_product(self, product, amount):
         self.products.append([
             product,
             amount

@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets, QtGui
-from PyQt5.QtCore import Qt
 from models import products_model, clients_model, order_status_model, orders_model
-from models.order_to_products_model import OrderToProductsModel
+from models.orders.order_to_products_model import OrderToProductsModel
 from uic.order import Ui_MainWindow
 from view.Orders.AddOrderItemWindow import AddOrderItemWindow
 from orm import OrderToProduct

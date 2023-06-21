@@ -8,4 +8,4 @@ def hash_password(password):
 
 def normalise_number(num):
     # return str(decimal.Decimal(num or 0).normalize())
-    return "{:.2f}".format(num or 0)
+    return "{:.2f}".format(float(num or 0))

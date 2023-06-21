@@ -123,6 +123,11 @@
     <string>Заказы</string>
    </property>
   </action>
+  <action name="deliveries_action">
+   <property name="text">
+    <string>Поставки</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
