@@ -65,7 +65,7 @@ class ClientsModel(QtCore.QAbstractTableModel):
         self.update()
 
     def delete_client(self, index):
-        self.clients[index.row()].delete_instance()
+        self.clients[index.row()].delete_instance(recursive=True)
         self.update()
 
     def update_client(self, index,

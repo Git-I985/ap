@@ -80,7 +80,7 @@ class ProductsModel(QtCore.QAbstractTableModel):
         self.update()
 
     def delete_product(self, index):
-        self.products[index.row()].delete_instance()
+        self.products[index.row()].delete_instance(recursive=True)
         self.update()
 
     def update_product(self,

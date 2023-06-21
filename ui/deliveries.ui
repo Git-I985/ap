@@ -143,6 +143,11 @@
     <string>Пользователи</string>
    </property>
   </action>
+  <action name="analytics_action">
+   <property name="text">
+    <string>Аналитика</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

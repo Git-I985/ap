@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_UpdateProductsCategories(object):
     def setupUi(self, UpdateProductsCategories):
         UpdateProductsCategories.setObjectName("UpdateProductsCategories")
-        UpdateProductsCategories.resize(497, 285)
+        UpdateProductsCategories.resize(369, 285)
         self.centralwidget = QtWidgets.QWidget(UpdateProductsCategories)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)

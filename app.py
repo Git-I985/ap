@@ -15,6 +15,7 @@ from view.LoginWindow import LoginWindow
 from view.Warehouse.WarehouseWindow import WarehouseWindow
 from view.Orders.OrdersWindow import OrdersWindow
 from view.Deliveries.DeliveriesWindow import DeliveriesWindow
+from view.Analytics.AnalyticsWIndow import AnalyticsWindow
 from utils import hash_password
 
 
@@ -33,6 +34,7 @@ class App(QtWidgets.QApplication):
         self.warehouseWindow = WarehouseWindow()
         self.ordersWindow = OrdersWindow()
         self.deliveriesWindow = DeliveriesWindow()
+        self.analyticsWindow = AnalyticsWindow()
 
         self.init_login()
 
@@ -68,7 +70,7 @@ class App(QtWidgets.QApplication):
 
     def setup_default_window(self):
         if self.user.role.name == 'Администратор':
-            self.defaultWindow = self.usersWindow
+            self.defaultWindow = self.analyticsWindow
         elif self.user.role.name == 'Менеджер':
             self.defaultWindow = self.ordersWindow
         elif self.user.role.name == 'Работник склада':
@@ -88,6 +90,7 @@ class App(QtWidgets.QApplication):
             self.usersWindow.menubar.addAction(self.usersWindow.orders_action)
             self.usersWindow.menubar.addAction(self.usersWindow.deliveries_action)
             self.usersWindow.menubar.addAction(self.usersWindow.users_action)
+            self.usersWindow.menubar.addAction(self.usersWindow.analytics_action)
 
             # products menubar
             self.productsWindow.menubar.addAction(self.productsWindow.clients_action)
@@ -97,6 +100,7 @@ class App(QtWidgets.QApplication):
             self.productsWindow.menubar.addAction(self.productsWindow.deliveries_action)
             self.productsWindow.menubar.addAction(self.productsWindow.products_action)
             self.productsWindow.menubar.addAction(self.productsWindow.users_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.analytics_action)
 
             # clients menubar
             self.clientsWindow.menuBar.addAction(self.clientsWindow.products_action)
@@ -106,6 +110,7 @@ class App(QtWidgets.QApplication):
             self.clientsWindow.menuBar.addAction(self.clientsWindow.deliveries_action)
             self.clientsWindow.menuBar.addAction(self.clientsWindow.clients_action)
             self.clientsWindow.menuBar.addAction(self.clientsWindow.users_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.analytics_action)
 
             # suppliers menubar
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.clients_action)
@@ -115,6 +120,7 @@ class App(QtWidgets.QApplication):
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.deliveries_action)
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.suppliers_action)
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.users_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.analytics_action)
 
             # warehouse menubar
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.products_action)
@@ -124,6 +130,7 @@ class App(QtWidgets.QApplication):
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.deliveries_action)
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.warehouse_action)
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.users_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.analytics_action)
 
             # orders menubar
             self.ordersWindow.menubar.addAction(self.ordersWindow.products_action)
@@ -133,6 +140,7 @@ class App(QtWidgets.QApplication):
             self.ordersWindow.menubar.addAction(self.ordersWindow.deliveries_action)
             self.ordersWindow.menubar.addAction(self.ordersWindow.orders_action)
             self.ordersWindow.menubar.addAction(self.ordersWindow.users_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.analytics_action)
 
             # deliveries menubar
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.products_action)
@@ -142,6 +150,17 @@ class App(QtWidgets.QApplication):
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.orders_action)
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.deliveries_action)
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.users_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.analytics_action)
+
+            # analytics menubar
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.products_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.clients_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.suppliers_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.warehouse_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.orders_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.deliveries_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.users_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.analytics_action)
 
 
         elif self.user.role.name == 'Менеджер':
@@ -152,6 +171,7 @@ class App(QtWidgets.QApplication):
             self.productsWindow.menubar.addAction(self.productsWindow.orders_action)
             self.productsWindow.menubar.addAction(self.productsWindow.deliveries_action)
             self.productsWindow.menubar.addAction(self.productsWindow.products_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.analytics_action)
 
             # clients menubar
             self.clientsWindow.menuBar.addAction(self.clientsWindow.products_action)
@@ -160,6 +180,7 @@ class App(QtWidgets.QApplication):
             self.clientsWindow.menuBar.addAction(self.clientsWindow.orders_action)
             self.clientsWindow.menuBar.addAction(self.clientsWindow.deliveries_action)
             self.clientsWindow.menuBar.addAction(self.clientsWindow.clients_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.analytics_action)
 
             # suppliers menubar
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.clients_action)
@@ -168,6 +189,7 @@ class App(QtWidgets.QApplication):
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.orders_action)
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.deliveries_action)
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.suppliers_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.analytics_action)
 
             # warehouse menubar
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.products_action)
@@ -176,6 +198,7 @@ class App(QtWidgets.QApplication):
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.orders_action)
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.deliveries_action)
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.warehouse_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.analytics_action)
 
             # orders menubar
             self.ordersWindow.menubar.addAction(self.ordersWindow.products_action)
@@ -184,6 +207,7 @@ class App(QtWidgets.QApplication):
             self.ordersWindow.menubar.addAction(self.ordersWindow.warehouse_action)
             self.ordersWindow.menubar.addAction(self.ordersWindow.deliveries_action)
             self.ordersWindow.menubar.addAction(self.ordersWindow.orders_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.analytics_action)
 
             # deliveries menubar
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.products_action)
@@ -192,6 +216,16 @@ class App(QtWidgets.QApplication):
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.warehouse_action)
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.orders_action)
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.deliveries_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.analytics_action)
+
+            # analytics menubar
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.products_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.clients_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.suppliers_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.warehouse_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.orders_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.deliveries_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.analytics_action)
 
         elif self.user.role.name == 'Работник склада':
             # warehouse menubar
@@ -210,6 +244,7 @@ class App(QtWidgets.QApplication):
             self.productsWindow.menubar.addAction(self.productsWindow.orders_action)
             self.productsWindow.menubar.addAction(self.productsWindow.deliveries_action)
             self.productsWindow.menubar.addAction(self.productsWindow.products_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.analytics_action)
 
             # clients menubar
             self.clientsWindow.menuBar.addAction(self.clientsWindow.products_action)
@@ -218,6 +253,7 @@ class App(QtWidgets.QApplication):
             self.clientsWindow.menuBar.addAction(self.clientsWindow.orders_action)
             self.clientsWindow.menuBar.addAction(self.clientsWindow.deliveries_action)
             self.clientsWindow.menuBar.addAction(self.clientsWindow.clients_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.analytics_action)
 
             # suppliers menubar
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.clients_action)
@@ -226,6 +262,7 @@ class App(QtWidgets.QApplication):
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.orders_action)
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.deliveries_action)
             self.suppliersWindow.menuBar.addAction(self.suppliersWindow.suppliers_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.analytics_action)
 
             # warehouse menubar
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.products_action)
@@ -234,6 +271,7 @@ class App(QtWidgets.QApplication):
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.orders_action)
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.deliveries_action)
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.warehouse_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.analytics_action)
 
             # orders menubar
             self.ordersWindow.menubar.addAction(self.ordersWindow.products_action)
@@ -242,6 +280,7 @@ class App(QtWidgets.QApplication):
             self.ordersWindow.menubar.addAction(self.ordersWindow.warehouse_action)
             self.ordersWindow.menubar.addAction(self.ordersWindow.deliveries_action)
             self.ordersWindow.menubar.addAction(self.ordersWindow.orders_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.analytics_action)
 
             # deliveries menubar
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.products_action)
@@ -250,6 +289,16 @@ class App(QtWidgets.QApplication):
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.warehouse_action)
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.orders_action)
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.deliveries_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.analytics_action)
+
+            # analytics menubar
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.products_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.clients_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.suppliers_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.warehouse_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.orders_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.deliveries_action)
+            self.analyticsWindow.menubar.addAction(self.analyticsWindow.analytics_action)
 
         # users window actions
         self.usersWindow.warehouse_action.triggered.connect(self.show_warehouse)
@@ -259,6 +308,7 @@ class App(QtWidgets.QApplication):
         self.usersWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.usersWindow.products_action.triggered.connect(self.show_products)
         self.usersWindow.users_action.triggered.connect(self.show_users)
+        self.usersWindow.analytics_action.triggered.connect(self.show_analytics)
 
         # products window actions
         self.productsWindow.warehouse_action.triggered.connect(self.show_warehouse)
@@ -268,6 +318,7 @@ class App(QtWidgets.QApplication):
         self.productsWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.productsWindow.products_action.triggered.connect(self.show_products)
         self.productsWindow.users_action.triggered.connect(self.show_users)
+        self.productsWindow.analytics_action.triggered.connect(self.show_analytics)
 
         # clients window actions
         self.clientsWindow.products_action.triggered.connect(self.show_products)
@@ -277,6 +328,7 @@ class App(QtWidgets.QApplication):
         self.clientsWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.clientsWindow.clients_action.triggered.connect(self.show_clients)
         self.clientsWindow.users_action.triggered.connect(self.show_users)
+        self.clientsWindow.analytics_action.triggered.connect(self.show_analytics)
 
         # suppliers window actions
         self.suppliersWindow.clients_action.triggered.connect(self.show_clients)
@@ -286,6 +338,7 @@ class App(QtWidgets.QApplication):
         self.suppliersWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.suppliersWindow.suppliers_action.triggered.connect(self.show_suppliers)
         self.suppliersWindow.users_action.triggered.connect(self.show_users)
+        self.suppliersWindow.analytics_action.triggered.connect(self.show_analytics)
 
         # warehouse window actions
         self.warehouseWindow.clients_action.triggered.connect(self.show_clients)
@@ -295,6 +348,7 @@ class App(QtWidgets.QApplication):
         self.warehouseWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.warehouseWindow.warehouse_action.triggered.connect(self.show_warehouse)
         self.warehouseWindow.users_action.triggered.connect(self.show_users)
+        self.warehouseWindow.analytics_action.triggered.connect(self.show_analytics)
 
         # orders window actions
         self.ordersWindow.clients_action.triggered.connect(self.show_clients)
@@ -304,6 +358,7 @@ class App(QtWidgets.QApplication):
         self.ordersWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.ordersWindow.orders_action.triggered.connect(self.show_orders)
         self.ordersWindow.users_action.triggered.connect(self.show_users)
+        self.ordersWindow.analytics_action.triggered.connect(self.show_analytics)
 
         # deliveries window actions
         self.deliveriesWindow.clients_action.triggered.connect(self.show_clients)
@@ -313,6 +368,17 @@ class App(QtWidgets.QApplication):
         self.deliveriesWindow.orders_action.triggered.connect(self.show_orders)
         self.deliveriesWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.deliveriesWindow.users_action.triggered.connect(self.show_users)
+        self.deliveriesWindow.analytics_action.triggered.connect(self.show_analytics)
+
+        # analytics window actions
+        self.analyticsWindow.clients_action.triggered.connect(self.show_clients)
+        self.analyticsWindow.products_action.triggered.connect(self.show_products)
+        self.analyticsWindow.suppliers_action.triggered.connect(self.show_suppliers)
+        self.analyticsWindow.warehouse_action.triggered.connect(self.show_warehouse)
+        self.analyticsWindow.orders_action.triggered.connect(self.show_orders)
+        self.analyticsWindow.deliveries_action.triggered.connect(self.show_deliveries)
+        self.analyticsWindow.users_action.triggered.connect(self.show_users)
+        self.analyticsWindow.analytics_action.triggered.connect(self.show_analytics)
 
     def show_clients(self):
         self.clientsWindow.show()
@@ -341,6 +407,10 @@ class App(QtWidgets.QApplication):
     def show_deliveries(self):
         self.deliveriesWindow.show()
         self.deliveriesWindow.activateWindow()
+
+    def show_analytics(self):
+        self.analyticsWindow.show()
+        self.analyticsWindow.activateWindow()
 
 
 app = App(sys.argv)

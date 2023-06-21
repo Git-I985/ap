@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1116</width>
+    <height>848</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Аналитика</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1116</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="clients_action">
+   <property name="text">
+    <string>Клиенты</string>
+   </property>
+  </action>
+  <action name="suppliers_action">
+   <property name="text">
+    <string>Поставщики</string>
+   </property>
+  </action>
+  <action name="products_action">
+   <property name="text">
+    <string>Продукты</string>
+   </property>
+  </action>
+  <action name="warehouse_action">
+   <property name="text">
+    <string>Склад</string>
+   </property>
+  </action>
+  <action name="orders_action">
+   <property name="text">
+    <string>Заказы</string>
+   </property>
+  </action>
+  <action name="deliveries_action">
+   <property name="text">
+    <string>Поставки</string>
+   </property>
+  </action>
+  <action name="users_action">
+   <property name="text">
+    <string>Пользователи</string>
+   </property>
+  </action>
+  <action name="analytics_action">
+   <property name="text">
+    <string>Аналитика</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
