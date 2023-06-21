@@ -69,6 +69,8 @@ class Ui_WarehouseWindow(object):
         self.deliveries_action.setObjectName("deliveries_action")
         self.warehouse_action = QtWidgets.QAction(WarehouseWindow)
         self.warehouse_action.setObjectName("warehouse_action")
+        self.users_action = QtWidgets.QAction(WarehouseWindow)
+        self.users_action.setObjectName("users_action")
 
         self.retranslateUi(WarehouseWindow)
         QtCore.QMetaObject.connectSlotsByName(WarehouseWindow)
@@ -86,3 +88,4 @@ class Ui_WarehouseWindow(object):
         self.orders_action.setText(_translate("WarehouseWindow", "Заказы"))
         self.deliveries_action.setText(_translate("WarehouseWindow", "Поставки"))
         self.warehouse_action.setText(_translate("WarehouseWindow", "Склад"))
+        self.users_action.setText(_translate("WarehouseWindow", "Пользователи"))

@@ -68,11 +68,11 @@ class App(QtWidgets.QApplication):
 
     def setup_default_window(self):
         if self.user.role.name == 'Администратор':
-            self.defaultWindow = self.clientsWindow
+            self.defaultWindow = self.usersWindow
         elif self.user.role.name == 'Менеджер':
-            self.defaultWindow = self.productsWindow
+            self.defaultWindow = self.ordersWindow
         elif self.user.role.name == 'Работник склада':
-            self.defaultWindow = self.productsWindow
+            self.defaultWindow = self.warehouseWindow
         elif self.user.role.name == 'Бухгалтер':
             self.defaultWindow = self.productsWindow
 
@@ -80,7 +80,69 @@ class App(QtWidgets.QApplication):
 
     def setup_menubar_actions(self):
         if self.user.role.name == 'Администратор':
-            pass
+            # users menubar
+            self.usersWindow.menubar.addAction(self.usersWindow.products_action)
+            self.usersWindow.menubar.addAction(self.usersWindow.clients_action)
+            self.usersWindow.menubar.addAction(self.usersWindow.suppliers_action)
+            self.usersWindow.menubar.addAction(self.usersWindow.warehouse_action)
+            self.usersWindow.menubar.addAction(self.usersWindow.orders_action)
+            self.usersWindow.menubar.addAction(self.usersWindow.deliveries_action)
+            self.usersWindow.menubar.addAction(self.usersWindow.users_action)
+
+            # products menubar
+            self.productsWindow.menubar.addAction(self.productsWindow.clients_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.suppliers_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.warehouse_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.orders_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.deliveries_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.products_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.users_action)
+
+            # clients menubar
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.products_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.suppliers_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.warehouse_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.orders_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.deliveries_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.clients_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.users_action)
+
+            # suppliers menubar
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.clients_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.products_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.warehouse_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.orders_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.deliveries_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.suppliers_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.users_action)
+
+            # warehouse menubar
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.products_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.clients_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.suppliers_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.orders_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.deliveries_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.warehouse_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.users_action)
+
+            # orders menubar
+            self.ordersWindow.menubar.addAction(self.ordersWindow.products_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.clients_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.suppliers_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.warehouse_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.deliveries_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.orders_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.users_action)
+
+            # deliveries menubar
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.products_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.clients_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.suppliers_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.warehouse_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.orders_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.deliveries_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.users_action)
+
 
         elif self.user.role.name == 'Менеджер':
             # products menubar
@@ -115,14 +177,6 @@ class App(QtWidgets.QApplication):
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.deliveries_action)
             self.warehouseWindow.menubar.addAction(self.warehouseWindow.warehouse_action)
 
-            # users menubar
-            self.usersWindow.menubar.addAction(self.usersWindow.products_action)
-            self.usersWindow.menubar.addAction(self.usersWindow.clients_action)
-            self.usersWindow.menubar.addAction(self.usersWindow.suppliers_action)
-            self.usersWindow.menubar.addAction(self.usersWindow.warehouse_action)
-            self.usersWindow.menubar.addAction(self.usersWindow.orders_action)
-            self.usersWindow.menubar.addAction(self.usersWindow.deliveries_action)
-
             # orders menubar
             self.ordersWindow.menubar.addAction(self.ordersWindow.products_action)
             self.ordersWindow.menubar.addAction(self.ordersWindow.clients_action)
@@ -140,10 +194,71 @@ class App(QtWidgets.QApplication):
             self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.deliveries_action)
 
         elif self.user.role.name == 'Работник склада':
-            pass
+            # warehouse menubar
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.deliveries_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.warehouse_action)
+
+            # deliveries menubar
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.warehouse_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.deliveries_action)
 
         elif self.user.role.name == 'Бухгалтер':
-            pass
+            # products menubar
+            self.productsWindow.menubar.addAction(self.productsWindow.clients_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.suppliers_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.warehouse_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.orders_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.deliveries_action)
+            self.productsWindow.menubar.addAction(self.productsWindow.products_action)
+
+            # clients menubar
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.products_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.suppliers_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.warehouse_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.orders_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.deliveries_action)
+            self.clientsWindow.menuBar.addAction(self.clientsWindow.clients_action)
+
+            # suppliers menubar
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.clients_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.products_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.warehouse_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.orders_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.deliveries_action)
+            self.suppliersWindow.menuBar.addAction(self.suppliersWindow.suppliers_action)
+
+            # warehouse menubar
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.products_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.clients_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.suppliers_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.orders_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.deliveries_action)
+            self.warehouseWindow.menubar.addAction(self.warehouseWindow.warehouse_action)
+
+            # orders menubar
+            self.ordersWindow.menubar.addAction(self.ordersWindow.products_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.clients_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.suppliers_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.warehouse_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.deliveries_action)
+            self.ordersWindow.menubar.addAction(self.ordersWindow.orders_action)
+
+            # deliveries menubar
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.products_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.clients_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.suppliers_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.warehouse_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.orders_action)
+            self.deliveriesWindow.menuBar.addAction(self.deliveriesWindow.deliveries_action)
+
+        # users window actions
+        self.usersWindow.warehouse_action.triggered.connect(self.show_warehouse)
+        self.usersWindow.suppliers_action.triggered.connect(self.show_suppliers)
+        self.usersWindow.clients_action.triggered.connect(self.show_clients)
+        self.usersWindow.orders_action.triggered.connect(self.show_orders)
+        self.usersWindow.deliveries_action.triggered.connect(self.show_deliveries)
+        self.usersWindow.products_action.triggered.connect(self.show_products)
+        self.usersWindow.users_action.triggered.connect(self.show_users)
 
         # products window actions
         self.productsWindow.warehouse_action.triggered.connect(self.show_warehouse)
@@ -152,6 +267,7 @@ class App(QtWidgets.QApplication):
         self.productsWindow.orders_action.triggered.connect(self.show_orders)
         self.productsWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.productsWindow.products_action.triggered.connect(self.show_products)
+        self.productsWindow.users_action.triggered.connect(self.show_users)
 
         # clients window actions
         self.clientsWindow.products_action.triggered.connect(self.show_products)
@@ -160,6 +276,7 @@ class App(QtWidgets.QApplication):
         self.clientsWindow.orders_action.triggered.connect(self.show_orders)
         self.clientsWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.clientsWindow.clients_action.triggered.connect(self.show_clients)
+        self.clientsWindow.users_action.triggered.connect(self.show_users)
 
         # suppliers window actions
         self.suppliersWindow.clients_action.triggered.connect(self.show_clients)
@@ -168,6 +285,7 @@ class App(QtWidgets.QApplication):
         self.suppliersWindow.orders_action.triggered.connect(self.show_orders)
         self.suppliersWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.suppliersWindow.suppliers_action.triggered.connect(self.show_suppliers)
+        self.suppliersWindow.users_action.triggered.connect(self.show_users)
 
         # warehouse window actions
         self.warehouseWindow.clients_action.triggered.connect(self.show_clients)
@@ -176,14 +294,16 @@ class App(QtWidgets.QApplication):
         self.warehouseWindow.orders_action.triggered.connect(self.show_orders)
         self.warehouseWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.warehouseWindow.warehouse_action.triggered.connect(self.show_warehouse)
+        self.warehouseWindow.users_action.triggered.connect(self.show_users)
 
         # orders window actions
         self.ordersWindow.clients_action.triggered.connect(self.show_clients)
         self.ordersWindow.products_action.triggered.connect(self.show_products)
         self.ordersWindow.suppliers_action.triggered.connect(self.show_suppliers)
-        self.ordersWindow.suppliers_action.triggered.connect(self.show_warehouse)
+        self.ordersWindow.warehouse_action.triggered.connect(self.show_warehouse)
         self.ordersWindow.deliveries_action.triggered.connect(self.show_deliveries)
         self.ordersWindow.orders_action.triggered.connect(self.show_orders)
+        self.ordersWindow.users_action.triggered.connect(self.show_users)
 
         # deliveries window actions
         self.deliveriesWindow.clients_action.triggered.connect(self.show_clients)
@@ -192,6 +312,7 @@ class App(QtWidgets.QApplication):
         self.deliveriesWindow.warehouse_action.triggered.connect(self.show_warehouse)
         self.deliveriesWindow.orders_action.triggered.connect(self.show_orders)
         self.deliveriesWindow.deliveries_action.triggered.connect(self.show_deliveries)
+        self.deliveriesWindow.users_action.triggered.connect(self.show_users)
 
     def show_clients(self):
         self.clientsWindow.show()
