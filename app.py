@@ -411,6 +411,7 @@ class App(QtWidgets.QApplication):
     def show_analytics(self):
         self.analyticsWindow.show()
         self.analyticsWindow.activateWindow()
+        self.analyticsWindow.upd()
 
 
 app = App(sys.argv)

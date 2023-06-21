@@ -10,8 +10,8 @@ matplotlib.use('Qt5Agg')
 
 
 class MplCanvas(FigureCanvasQTAgg):
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
+    def __init__(self, parent=None):
+        fig = Figure()
         self.axes = fig.add_subplot(2, 2, 1)
         self.axes2 = fig.add_subplot(2, 2, 2)
         self.axes3 = fig.add_subplot(2, 2, 3)
@@ -24,11 +24,12 @@ class AnalyticsWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(QtWidgets.QMainWindow, self).__init__(*argv)
         super(Ui_MainWindow, self).__init__()
         self.setupUi(self)
-        self.sc = MplCanvas(self, width=5, height=4, dpi=100)
+        self.sc = MplCanvas(self)
         self.setCentralWidget(self.sc)
         self.upd()
 
     def draw1(self):
+        print('upd draw1')
         cursor = db.execute_sql(
             "SELECT product.name, COUNT(ordertoproduct.product_id) as 'count' FROM `ordertoproduct` INNER JOIN product ON product.id = ordertoproduct.product_id GROUP BY `product_id` ORDER BY count ASC")
         products_data = [row for row in cursor.fetchall()]
@@ -38,6 +39,7 @@ class AnalyticsWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.sc.axes.set_title('Рейтинг продаж продуктов по кол-ву')
 
     def draw2(self):
+        print('upd draw2')
         cursor = db.execute_sql(
             "SELECT c.company, COUNT(client_id) as count FROM `order` INNER JOIN client c on `order`.client_id = c.id GROUP BY client_id ORDER BY count ASC")
 
@@ -48,6 +50,7 @@ class AnalyticsWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.sc.axes2.set_title('Рейтинг заказчиков по кол-ву заказов')
 
     def draw3(self):
+        print('upd draw3')
         cursor = db.execute_sql(
             "SELECT client.company, SUM(amount) as total_count, SUM(product.sale_price) as total_price FROM ordertoproduct INNER JOIN `order` ON ordertoproduct.order_id = `order`.id INNER JOIN `client` ON client.id = `order`.client_id INNER JOIN product ON product.id = `ordertoproduct`.product_id GROUP BY order_id ORDER BY total_count ASC;")
         cd = [row for row in cursor.fetchall()]
@@ -57,6 +60,7 @@ class AnalyticsWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.sc.axes3.set_title('Рейтинг заказчиков по кол-ву заказанных товаров')
 
     def draw4(self):
+        print('upd draw4')
         cursor = db.execute_sql(
             "SELECT client.company, SUM(amount) as total_count, SUM(product.sale_price) as total_price FROM ordertoproduct INNER JOIN `order` ON ordertoproduct.order_id = `order`.id INNER JOIN `client` ON client.id = `order`.client_id INNER JOIN product ON product.id = `ordertoproduct`.product_id GROUP BY order_id ORDER BY total_count ASC;")
         cd = [row for row in cursor.fetchall()]
@@ -66,7 +70,12 @@ class AnalyticsWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.sc.axes4.set_title('Рейтинг заказчиков по сумме заказов товаров')
 
     def upd(self):
+        self.sc.axes.cla()
+        self.sc.axes2.cla()
+        self.sc.axes3.cla()
+        self.sc.axes4.cla()
         self.draw1()
         self.draw2()
         self.draw3()
         self.draw4()
+        self.sc.draw()

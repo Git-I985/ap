@@ -1,3 +1,14 @@
+CREATE DATABASE IF NOT EXISTS `alinaproj`;
+
+INSERT INTO alinaproj.userrole (id, name)
+VALUES (1, 'Менеджер');
+INSERT INTO alinaproj.userrole (id, name)
+VALUES (2, 'Администратор');
+INSERT INTO alinaproj.userrole (id, name)
+VALUES (3, 'Работник склада');
+INSERT INTO alinaproj.userrole (id, name)
+VALUES (4, 'Бухгалтер');
+
 DROP PROCEDURE IF EXISTS alinaproj.calculate_sale_price;
 delimiter //
 CREATE PROCEDURE alinaproj.calculate_sale_price(buy_price int, margin int, out sale_price int)
