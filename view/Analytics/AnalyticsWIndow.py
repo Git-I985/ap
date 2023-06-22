@@ -4,6 +4,7 @@ from uic.analytics import Ui_MainWindow
 import matplotlib
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
+from matplotlib.gridspec import GridSpec
 from orm import db
 
 matplotlib.use('Qt5Agg')
@@ -35,7 +36,7 @@ class AnalyticsWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         products_data = [row for row in cursor.fetchall()]
         products = [row[0] for row in products_data]
         sales = [row[1] for row in products_data]
-        self.sc.axes.bar(products, sales)
+        self.sc.axes.barh(products, sales)
         self.sc.axes.set_title('Рейтинг продаж продуктов по кол-ву')
 
     def draw2(self):
